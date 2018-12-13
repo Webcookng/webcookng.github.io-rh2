@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>INVOICE</title>
+  
+  
+  
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+
+  <body>
+    <link href='//fonts.googleapis.com/css?family=Karla' rel='stylesheet' type='text/css'>
+        
+        <nav>
+            <div class="container">
+                <ul id="help" style="display:none;">
+                    <li>Use ↹ key and Shift-↹  combination to navigate between fields</li>
+                    <li>Use your web browser capability to Print into PDF</li>
+                    <li>Amount fields are calculated automatically</li>
+                    <li>Nothing is saved on the server</li>
+                    <li>Empty fields are excluded in the printed version</li>
+                  
+                    <li>Anything that is saved is stored in your browser's localStorage</li>
+                   
+                </ul>
+            
+
+
+
+                <div class="toolbar">
+                    <h1>HTML5 invoice generator by <a href="mailto: info@webcook.ng">WebCook Nigeria</a></h1>
+                    <button onclick="$('#help').toggle();">Help!</button>                
+                    <button onclick="window.print();" title="Use your browser's capability to print to PDF!">Print...</button>
+                    <select id="language">
+                        <option value="en">English</option>
+                        <option value="yo">Yoruba</option>
+                    </select>
+                    
+                    <select id="currency">
+                        <option value="NRA">Naira</option>
+                        <option value="USD">USD</option>
+                    </select>
+                </div>
+            </div>
+        </nav>
+            
+        <div id="page" class="a4">
+            <div id="padding">
+                <table class="fields">
+                    <tbody><tr>
+                        <td class="label translate" id="invoice_number_label" data-source-string="Invoice number:">Invoice number:</td>
+                        <td class="value"><input id="invoice_number"></td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="label translate" data-source-string="Invoice date:">Invoice date:</td>
+                        <td class="value"><input id="invoice_date"></td>
+                    </tr>
+                </tbody></table>
+
+
+                <div id="to" class="fields">
+                    <h1>
+                        <span class="translate" data-source-string="Invoice to">Invoice to</span>
+                        <input id="to_company" placeholder="Name">
+                    </h1>
+                    <input class="icon regno print-display-none" id="to_company_regno" placeholder="12345678">
+                    <input class="icon person print-display-none" id="to_contact" placeholder="Company Name">
+                    <input class="icon web print-display-none" id="to_company" placeholder="WebSite">
+                    <input class="icon email print-display-none" id="to_email" placeholder="Email">
+                    <input class="icon address print-display-none" id="to_address" placeholder="Address">
+                    <input class="icon phone print-display-none" id="to_phone" placeholder="Telephone">
+                </div>
+
+                <div id="from" class="fields">
+                    <h1>
+                        <span class="translate" data-source-string="From">From</span>
+                        <input id="from_company" value=" Name">
+                    </h1>
+                    <input class="icon regno" id="from_company_regno" value="12502161" placeholder="12502161">
+                    <input class="icon person" id="from_contact" value="Company Name" placeholder="Lauri Võsandi">
+                    <input class="icon web" id="from_company" value="WebSite" placeholder="Website">
+                    <input class="icon email" id="from_email" value="Email"
+                           placeholder="Email">
+                    <input class="icon address" id="from_address" value="Address" placeholder="Address">
+                    <input class="icon phone" id="from_phone" value="Telephone" placeholder="Telephone">
+                </div>
+                    
+                
+
+                <table id="list">
+                    <tbody><tr>
+                        <th class="translate" data-source-string="Item name">Item name</th>
+                        <th class="quantity translate" data-source-string="Quantity">Quantity</th>
+                        <th class="price translate" data-source-string="Unit price">Unit price</th>
+                        <th class="amount translate" data-source-string="Amount">Amount</th>
+                    </tr>
+                    <tr>
+                        <td class="product"><input type="text" value="Cubietruck (Dual-core 1GHz, 2GB RAM, 8GB Flash, 1GBps LAN)"></td>
+                        <td class="quantity"><input type="number" value="30"></td>
+                        <td class="price"><input type="number" value="169.00" min="0" step="0.05"></td>
+                        <td class="amount"><span class="value">1800.00</span> <span class="currency">N</span></td>
+                    </tr>
+                    <tr>
+                        <td class="product"><input type="text" value="USB OTG cable, SATA cable, USB power cable, CPU heatsink"></td>
+                        <td class="quantity"><input type="number" value="30"></td>
+                        <td class="price"><input type="number" value="0.00" min="0" step="0.05"></td>
+                        <td class="amount"><span class="value">0.00</span> <span class="currency">N</span></td>
+                    </tr>
+                    <tr>
+                        <td class="product"><input type="text" value="5V/2A EU adapter"></td>
+                        <td class="quantity"><input type="number" value="30"></td>
+                        <td class="price"><input type="number" value="0.00" min="0" step="0.05"></td>
+                        <td class="amount"><span class="value">0.00</span> <span class="currency">N</span></td>
+                    </tr>
+                    <tr>
+                        <td class="product"><input type="text" value="Porting Estonian ID-card software stack, Chromium, MATE-desktop"></td>
+                        <td class="quantity"><input type="number" value="1"></td>
+                        <td class="price"><input type="number" value="0.00" min="0" step="0.05"></td>
+                        <td class="amount"><span class="value">0.00</span> <span class="currency">N</span></td>
+                    </tr>
+                    <tr>
+                        <td class="product"><input type="text" value=""></td>
+                        <td class="quantity"><input type="number" value="0"></td>
+                        <td class="price"><input type="number" value="0.00" min="0" step="0.05"></td>
+                        <td class="amount"><span class="value">0.00</span> <span class="currency">N</span></td>
+                    </tr>
+                    <tr>
+                        <td class="product"><input type="text" value=""></td>
+                        <td class="quantity"><input type="number" value="0"></td>
+                        <td class="price"><input type="number" value="0.00" min="0" step="0.05"></td>
+                        <td class="amount"><span class="value">0.00</span> <span class="currency">N</span></td>
+                    </tr>
+                    <tr>
+                        <td class="product"><input type="text" value=""></td>
+                        <td class="quantity"><input type="number" value="0"></td>
+                        <td class="price"><input type="number" value="0.00" min="0" step="0.05"></td>
+                        <td class="amount"><span class="value">0.00</span> <span class="currency">N</span></td>
+                    </tr>
+                </tbody></table>
+
+            
+                <table id="results" class="fields">
+                    <tbody><tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td class="label translate" id="subtotal_label" data-source-string="Subtotal:" style="visibility: visible;">Subtotal:</td>
+                        <td class="value" id="subtotal" style="visibility: visible;"><span id="subtotal_value">1800.00</span> <span class="currency">N</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td class="label" id="vat_label" style="visibility: visible;"><span class="translate" data-source-string="VAT">VAT</span> <input id="vat_percent" min="0" max="20" step="1" type="number" value="20">%:</td>
+                        <td class="value" id="vat" style="visibility: visible;"><span id="vat_value">324.00</span> <span class="currency">N</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="label translate" id="due_date_label" data-source-string="Due date:">Due date:</td>
+                        <td class="value"><input id="due_date"></td>
+                        <td>&nbsp;</td>
+                        <td class="label translate" id="amount_due_label" data-source-string="Amount due:">Amount due:</td>
+                        <td class="value"><span id="amount_due">2124.00</span> <span class="currency">N</span></td>
+                    </tr>
+
+                </tbody></table>
+
+
+                
+                <footer>
+                    <hr>
+
+
+                   
+                </footer>
+            </div>
+        </div>
+    
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+</body>
+  
+  
+
+    <script  src="js/index.js"></script>
+
+
+
+
+</body>
+
+</html>
